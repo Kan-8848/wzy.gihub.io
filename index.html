@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a6cf7;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            background: #f8f9fa;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-thumb {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 18px;
+        }
+
+        .card-info {
+            padding: 20px;
+            text-align: center;
+            background: #ffffff;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #212529;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #4a6cf7;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .card-thumb {
+                height: 180px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>我的个人作品集</h1>
+
+    <div class="container">
+        <!-- 抖音自媒体 -->
+        <a href="https://www.douyin.com/user/self" target="_blank" class="card">
+            <img src="douyin/thumb.jpg" alt="抖音自媒体" class="card-thumb">
+            <div class="card-info">
+                <div class="card-title">抖音自媒体作品</div>
+                <div class="card-desc">点击查看作品</div>
+            </div>
+        </a>
+
+        <!-- 摄影作品（你的文件夹是 photos/） -->
+        <a href="photo.html" class="card">
+            <img src="photos/thumb.jpg" alt="摄影作品" class="card-thumb">
+            <div class="card-info">
+                <div class="card-title">摄影作品合集</div>
+                <div class="card-desc">点击查看全部摄影图集</div>
+            </div>
+        </a>
+
+        <!-- 新闻稿件 -->
+        <a href="news.html" class="card">
+            <img src="news/thumb.jpg" alt="新闻稿件" class="card-thumb">
+            <div class="card-info">
+                <div class="card-title">新闻报道稿件</div>
+                <div class="card-desc">点击查看稿件详情</div>
+            </div>
+        </a>
+
+        <!-- 奖项荣誉 -->
+        <a href="awards.html" class="card">
+            <img src="awards/thumb.jpg" alt="奖项荣誉" class="card-thumb">
+            <div class="card-info">
+                <div class="card-title">获奖荣誉合集</div>
+                <div class="card-desc">点击查看奖项详情</div>
+            </div>
+        </a>
+    </div>
+</body>
+</html>

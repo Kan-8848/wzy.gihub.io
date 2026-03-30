@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摄影作品 - 我的个人作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC','Microsoft YaHei',sans-serif;
+            scroll-behavior: smooth;
+        }
+        :root {
+            --bg: #fff;
+            --card: #f7f7f7;
+            --text: #2a2a2a;
+            --sub: #666;
+            --accent: #4a6cf7;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #121212;
+                --card: #1e1e1e;
+                --text: #e0e0e0;
+                --sub: #aaa;
+            }
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            padding-bottom: 60px;
+        }
+        .header {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: var(--accent);
+        }
+        .back-btn {
+            padding: 10px 22px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: #3a5ce0;
+        }
+        .photo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .photo-item {
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .photo-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal img {
+            max-width: 92%;
+            max-height: 92vh;
+            border-radius: 10px;
+        }
+        .close {
+            position: fixed;
+            top: 25px; right: 30px;
+            color: white;
+            font-size: 36px;
+            cursor: pointer;
+            z-index: 9999;
+        }
+        @media (max-width:768px) {
+            .header {
+                flex-direction: column;
+                gap:20px;
+                text-align: center;
+            }
+            .photo-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>我的摄影作品集</h1>
+    <a href="index.html" class="back-btn">← 返回主页</a>
+</div>
+
+<div class="photo-container" id="photoList">
+    <div class="photo-item"><img src="photos/photo1.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo2.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo3.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo4.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo5.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo6.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo7.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo8.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo9.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo10.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo11.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo12.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo13.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo14.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo15.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo16.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo17.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo18.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo19.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo20.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo21.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo22.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo23.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo24.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo25.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo26.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo27.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo28.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo29.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo30.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo31.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo32.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo33.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo34.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo35.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo36.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo37.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo38.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo39.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo40.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo41.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo42.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo43.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo44.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo45.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo46.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo47.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo48.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo49.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo50.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo51.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo52.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo53.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo54.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo55.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo56.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo57.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo58.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo59.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo60.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo61.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo62.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo63.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo64.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo65.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo66.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo67.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo68.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo69.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo70.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo71.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo72.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo73.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo74.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo75.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo76.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo77.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo78.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo79.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo80.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo81.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo82.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo83.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo84.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo85.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo86.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo87.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo88.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo89.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo90.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo91.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo92.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo93.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo94.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo95.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo96.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo97.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo98.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    <div class="photo-item"><img src="photos/photo99.jpg" alt="摄影作品" class="preview-img" loading="lazy"></div>
+    </div>
+
+<div class="modal" id="imgModal">
+    <span class="close">&times;</span>
+    <img src="" id="modalImg">
+</div>
+
+<script>
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.querySelector(".close");
+    const imgs = document.querySelectorAll(".preview-img");
+
+    imgs.forEach(img=>{
+        img.addEventListener("click",()=>{
+            modal.style.display="flex";
+            modalImg.src=img.src;
+        });
+    });
+    closeBtn.onclick=()=>{modal.style.display="none";}
+    window.onclick=(e)=>{if(e.target===modal) modal.style.display="none";}
+</script>
+
+</body>
+</html>

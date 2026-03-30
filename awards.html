@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奖项荣誉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background: #fff;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .back {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #f1f3f5;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        /* 横向滑动容器 */
+        .slide-container {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 10px 5px 20px;
+            scroll-snap-type: x mandatory;
+        }
+
+        /* 奖项卡片 */
+        .award-card {
+            width: 220px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            background: #f9f9f9;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* 卡片图片 */
+        .award-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 卡片文字 */
+        .award-info {
+            padding: 14px;
+        }
+
+        .award-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: #222;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .award-time {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* 普通弹窗（单张图） */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal img {
+            max-width: 95%;
+            max-height: 90vh;
+            border-radius: 12px;
+        }
+
+        /* 奖项4专用弹窗（三张图滑动） */
+        .modal-slide {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 999;
+            padding: 20px;
+        }
+
+        .slide-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-content {
+            width: 90%;
+            max-width: 800px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            display: flex;
+            gap: 15px;
+            padding-bottom: 20px;
+        }
+
+        .slide-item {
+            flex-shrink: 0;
+            width: 100%;
+            scroll-snap-align: center;
+        }
+
+        .slide-item img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        /* 关闭按钮 */
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: #fff;
+            font-size: 36px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>奖项荣誉</h1>
+        <a href="index.html" class="back">← 返回主页</a>
+    </div>
+
+    <!-- 横向滑动奖项卡片 -->
+    <div class="slide-container">
+        <!-- 奖项1 -->
+        <div class="award-card" onclick="openModal('award1')">
+            <img class="award-img" src="awards/award1.jpg">
+            <div class="award-info">
+                <div class="award-title">校级奖学金（实践能力奖）</div>
+                <div class="award-time">2025-10</div>
+            </div>
+        </div>
+
+        <!-- 奖项2 -->
+        <div class="award-card" onclick="openModal('award2')">
+            <img class="award-img" src="awards/award2.jpg">
+            <div class="award-info">
+                <div class="award-title">多彩中国云南行 特别奖</div>
+                <div class="award-time">2025-10-28</div>
+            </div>
+        </div>
+
+        <!-- 奖项3 -->
+        <div class="award-card" onclick="openModal('award3')">
+            <img class="award-img" src="awards/award3.jpg">
+            <div class="award-info">
+                <div class="award-title">多彩中国云南行 最佳传播奖</div>
+                <div class="award-time">2025-10-28</div>
+            </div>
+        </div>
+
+        <!-- 奖项4（三张图） -->
+        <div class="award-card" onclick="openSlideModal()">
+            <img class="award-img" src="awards/award4_1.jpg">
+            <div class="award-info">
+                <div class="award-title">多彩中国云南行 优秀作品奖</div>
+                <div class="award-time">2025-10-28</div>
+            </div>
+        </div>
+
+        <!-- 奖项5 -->
+        <div class="award-card" onclick="openModal('award5')">
+            <img class="award-img" src="awards/award5.jpg">
+            <div class="award-info">
+                <div class="award-title">学院奖 水仙药业平面优秀奖</div>
+                <div class="award-time">2025-07</div>
+            </div>
+        </div>
+
+        <!-- 奖项6 -->
+        <div class="award-card" onclick="openModal('award6')">
+            <img class="award-img" src="awards/award6.jpg">
+            <div class="award-info">
+                <div class="award-title">学院奖 百岁山优秀奖</div>
+                <div class="award-time">2025-07</div>
+            </div>
+        </div>
+
+        <!-- 奖项7 -->
+        <div class="award-card" onclick="openModal('award7')">
+            <img class="award-img" src="awards/award7.png">
+            <div class="award-info">
+                <div class="award-title">大创省级项目结项证书</div>
+                <div class="award-time">2025-06</div>
+            </div>
+        </div>
+
+        <!-- 奖项8 -->
+        <div class="award-card" onclick="openModal('award8')">
+            <img class="award-img" src="awards/award8.jpg">
+            <div class="award-info">
+                <div class="award-title">职业规划大赛 三等奖</div>
+                <div class="award-time">2024-12</div>
+            </div>
+        </div>
+
+        <!-- 奖项9 -->
+        <div class="award-card" onclick="openModal('award9')">
+            <img class="award-img" src="awards/award9.jpg">
+            <div class="award-info">
+                <div class="award-title">优秀学生干部</div>
+                <div class="award-time">2024-12-03</div>
+            </div>
+        </div>
+
+        <!-- 奖项10 -->
+        <div class="award-card" onclick="openModal('award10')">
+            <img class="award-img" src="awards/award10.jpg">
+            <div class="award-info">
+                <div class="award-title">校级奖学金（实践能力奖）</div>
+                <div class="award-time">2024-11</div>
+            </div>
+        </div>
+
+        <!-- 奖项11 -->
+        <div class="award-card" onclick="openModal('award11')">
+            <img class="award-img" src="awards/award11.jpg">
+            <div class="award-info">
+                <div class="award-title">学院奖 榄菊影视优秀奖</div>
+                <div class="award-time">2024-08</div>
+            </div>
+        </div>
+
+        <!-- 奖项12 -->
+        <div class="award-card" onclick="openModal('award12')">
+            <img class="award-img" src="awards/award12.jpg">
+            <div class="award-info">
+                <div class="award-title">学院奖 景田短视频优秀奖</div>
+                <div class="award-time">2024-08</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 普通奖项弹窗（单张图） -->
+    <div class="modal" id="award1" onclick="closeModal('award1')">
+        <span class="close" onclick="closeModal('award1')">&times;</span>
+        <img src="awards/award1.jpg">
+    </div>
+    <div class="modal" id="award2" onclick="closeModal('award2')">
+        <span class="close" onclick="closeModal('award2')">&times;</span>
+        <img src="awards/award2.jpg">
+    </div>
+    <div class="modal" id="award3" onclick="closeModal('award3')">
+        <span class="close" onclick="closeModal('award3')">&times;</span>
+        <img src="awards/award3.jpg">
+    </div>
+    <div class="modal" id="award5" onclick="closeModal('award5')">
+        <span class="close" onclick="closeModal('award5')">&times;</span>
+        <img src="awards/award5.jpg">
+    </div>
+    <div class="modal" id="award6" onclick="closeModal('award6')">
+        <span class="close" onclick="closeModal('award6')">&times;</span>
+        <img src="awards/award6.jpg">
+    </div>
+    <div class="modal" id="award7" onclick="closeModal('award7')">
+        <span class="close" onclick="closeModal('award7')">&times;</span>
+        <img src="awards/award7.png">
+    </div>
+    <div class="modal" id="award8" onclick="closeModal('award8')">
+        <span class="close" onclick="closeModal('award8')">&times;</span>
+        <img src="awards/award8.jpg">
+    </div>
+    <div class="modal" id="award9" onclick="closeModal('award9')">
+        <span class="close" onclick="closeModal('award9')">&times;</span>
+        <img src="awards/award9.jpg">
+    </div>
+    <div class="modal" id="award10" onclick="closeModal('award10')">
+        <span class="close" onclick="closeModal('award10')">&times;</span>
+        <img src="awards/award10.jpg">
+    </div>
+    <div class="modal" id="award11" onclick="closeModal('award11')">
+        <span class="close" onclick="closeModal('award11')">&times;</span>
+        <img src="awards/award11.jpg">
+    </div>
+    <div class="modal" id="award12" onclick="closeModal('award12')">
+        <span class="close" onclick="closeModal('award12')">&times;</span>
+        <img src="awards/award12.jpg">
+    </div>
+
+    <!-- 奖项4专用滑动弹窗（三张图） -->
+    <div class="modal-slide" id="slideModal" onclick="closeSlideModal()">
+        <span class="close" onclick="closeSlideModal()">&times;</span>
+        <div class="slide-wrapper">
+            <div class="slide-content">
+                <div class="slide-item">
+                    <img src="awards/award4_1.jpg">
+                </div>
+                <div class="slide-item">
+                    <img src="awards/award4_2.jpg">
+                </div>
+                <div class="slide-item">
+                    <img src="awards/award4_3.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 打开普通弹窗
+        function openModal(id) {
+            document.getElementById(id).style.display = "flex";
+        }
+
+        // 关闭普通弹窗
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        // 打开奖项4滑动弹窗
+        function openSlideModal() {
+            document.getElementById("slideModal").style.display = "block";
+        }
+
+        // 关闭奖项4滑动弹窗
+        function closeSlideModal() {
+            document.getElementById("slideModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>

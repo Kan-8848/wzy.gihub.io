@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻稿件 - 我的个人作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC','Microsoft YaHei',sans-serif;
+            scroll-behavior: smooth;
+        }
+        :root {
+            --bg: #fff;
+            --card: #f7f7f7;
+            --text: #2a2a2a;
+            --sub: #666;
+            --accent: #4a6cf7;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #121212;
+                --card: #1e1e1e;
+                --text: #e0e0e0;
+                --sub: #aaa;
+            }
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            padding-bottom: 60px;
+        }
+        .header {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: var(--accent);
+        }
+        .back-btn {
+            padding: 10px 22px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        .back-btn:hover {
+            background: #3a5ce0;
+        }
+        .news-list {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .news-item {
+            display: flex;
+            align-items: center;
+            background: var(--card);
+            border-radius: 16px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .news-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
+        .news-thumb {
+            width: 100px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 18px;
+            flex-shrink: 0;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sub);
+            font-size: 12px;
+        }
+        .news-info {
+            flex: 1;
+            overflow: hidden;
+        }
+        .news-title {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .news-media {
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        .news-time {
+            font-size: 13px;
+            color: var(--sub);
+            margin-bottom: 4px;
+        }
+        .news-link {
+            font-size: 13px;
+            color: var(--sub);
+            opacity: 0.8;
+        }
+        /* 手机端适配 */
+        @media (max-width:768px) {
+            .news-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .news-thumb {
+                margin-bottom: 12px;
+                margin-right: 0;
+                width: 100%;
+                height: 180px;
+                font-size: 14px;
+            }
+            .news-title {
+                white-space: normal;
+                line-height: 1.4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="header">
+    <h1>新闻稿件作品集</h1>
+    <a href="index.html" class="back-btn">← 返回主页</a>
+</div>
+
+<div class="news-list">
+    <!-- 新闻1 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/video_details.html?from=androidapp&eid=54ff708bf5de90c5&timestamp=1774483517053" target="_blank">
+        <img class="news-thumb" src="news/thumb1.jpg" alt="新闻1缩略图">
+        <div class="news-info">
+            <div class="news-title">国门巾帼绽芳华 致敬坚守的 “她力量”</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2026-03-10</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻2 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/video_details.html?from=iosapp&videoType=0&eid=12504cdfe794e7dc&userId=NDM1NjI4D&timestamp=1774483611879" target="_blank">
+        <img class="news-thumb" src="news/thumb2.jpg" alt="新闻2缩略图">
+        <div class="news-info">
+            <div class="news-title">年货飘香 农科年货节红火迎新春</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：22026-02-11</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻3 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/news_details.html?from=androidapp&eid=d1d5d971fdac95e5&timestamp=1774483699227" target="_blank">
+        <img class="news-thumb" src="news/thumb3.jpg" alt="新闻3缩略图">
+        <div class="news-info">
+            <div class="news-title">光阴的故事——再见，云大东二院！</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2026-01-27</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻4 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/video_details.html?from=androidapp&eid=6917c6f9f3db3497&timestamp=1774483752168" target="_blank">
+        <img class="news-thumb" src="news/thumb4.jpg" alt="新闻4缩略图">
+        <div class="news-info">
+            <div class="news-title">这里的青春不散场，云大东二院等你回来！</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2026-01-23</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻5 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/news_details.html?from=androidapp&eid=fae9eb1d63881684&userId=NDM3NjY0D&timestamp=1774483788456" target="_blank">
+        <img class="news-thumb" src="news/thumb5.jpg" alt="新闻5缩略图">
+        <div class="news-info">
+            <div class="news-title">还未命名就全网出名，云南月季又火了——有一种叫云南的生活之365天</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2026-01-22</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻6 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/news_details.html?from=androidapp&eid=48ecd8ce7c5460bc&userId=NDM3NjY0D&timestamp=1774483844150" target="_blank">
+        <img class="news-thumb" src="news/thumb6.jpg" alt="新闻6缩略图">
+        <div class="news-info">
+            <div class="news-title">网友力荐“娇龙”！云南省花卉产业劳动竞赛月季新品种征名活动火热进行中</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2026-01-20</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻7 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/news_details.html?from=androidapp&eid=faf608b565f98446&userId=NDM3NjY0D&timestamp=1774483933187" target="_blank">
+        <img class="news-thumb" src="news/thumb7.jpg" alt="新闻7缩略图">
+        <div class="news-info">
+            <div class="news-title">急寻芳名！云南月季新秀出道，缺个你取的爆款名字！</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2026-01-16</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻8 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/video_details.html?from=androidapp&videoType=0&eid=bfde44d4f034d32c&userId=NDM3NjY0D&timestamp=1774483890652" target="_blank">
+        <img class="news-thumb" src="news/thumb8.jpg" alt="新闻8缩略图">
+        <div class="news-info">
+            <div class="news-title">全网蹲一个好听名字！云南月季新品喊你来取名了</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2026-01-15</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻9 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/video_details.html?from=androidapp&videoType=0&eid=f5bfe7c8fa513506&userId=NDM3NjY0D&timestamp=1774484020813" target="_blank">
+        <img class="news-thumb" src="news/thumb9.jpg" alt="新闻9缩略图">
+        <div class="news-info">
+            <div class="news-title">110警察节，致敬守护者——走进昆明边检站警营</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2026-01-10</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻10 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/news_details.html?from=androidapp&eid=321db6dcc3f3739c&timestamp=1774484033002" target="_blank">
+        <img class="news-thumb" src="news/thumb10.jpg" alt="新闻10缩略图">
+        <div class="news-info">
+            <div class="news-title">云新闻图片丨人潮映彩 一起拥抱2026年</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2026-01-01</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻11 -->
+    <a class="news-item" href="https://ynrb-wap.yndaily.com/video_details.html?from=androidapp&videoType=0&eid=89e6bfa097660053&userId=NDM3NjY0D&timestamp=1774484076197" target="_blank">
+        <img class="news-thumb" src="news/thumb11.jpg" alt="新闻11缩略图">
+        <div class="news-info">
+            <div class="news-title">2025年度云南温暖瞬间</div>
+            <div class="news-media">发表媒体：云南日报-云新闻</div>
+            <div class="news-time">发布时间：2025-12-19</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻12 -->
+    <a class="news-item" href="https://minzu.yunnan.cn/system/2025/08/21/033598578.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb12.jpg" alt="新闻12缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦｜师生齐聚蒙自格早寨 欢歌笑语共度火把节</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-08-21</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻13 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/08/08/033579215.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb13.jpg" alt="新闻13缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨红土铁轨间的碧色寨百年印记</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-08-08</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻14 -->
+    <a class="news-item" href="https://honghe.yunnan.cn/system/2025/08/01/033568716.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb14.jpg" alt="新闻14缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨金平：边境线上的乡村振兴与教育帮扶</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-08-01</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻15 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/08/01/033568011.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb15.jpg" alt="新闻15缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【视频】铁皮教室里听雨声 见风骨</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-08-01</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻16 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/07/30/033564469.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb16.jpg" alt="新闻16缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨碧色寨建筑图鉴：这座法式小站有点东西</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2026-07-30</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻17 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/07/28/033561383.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb17.jpg" alt="新闻17缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨金平县金水河边检站打造沉浸式国门普法教育新课堂</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-28</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻18 -->
+    <a class="news-item" href="http://edu.yunnan.cn/system/2025/07/25/033558365.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb18.jpg" alt="新闻18缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨西南联大“学分制”：在规范与灵活间培育英才</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-25</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻19 -->
+    <a class="news-item" href="http://edu.yunnan.cn/system/2025/07/24/033557003.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb19.jpg" alt="新闻19缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【H5】吾问西东</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-24</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻20 -->
+    <a class="news-item" href="https://society.yunnan.cn/system/2025/07/23/033555659.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb20.jpg" alt="新闻20缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【视频】“语”你“童”行 金平夏令营助梦启航</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-23</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻21 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/07/23/033555591.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb21.jpg" alt="新闻21缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【H5】邀你解锁联大专属MBTI表情包</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-23</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻22 -->
+    <a class="news-item" href="https://finance.yunnan.cn/system/2025/07/23/033555364.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb22.jpg" alt="新闻22缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨当鲜花遇上拍卖，数字重构花市规则</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-23</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻23 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/07/22/033554408.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb23.jpg" alt="新闻23缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨联大薪火照边疆！金平英语义教团师生的双向奔赴</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-22</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻24 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/07/22/033554211.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb24.jpg" alt="新闻24缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【H5】碧色寨百年老铁轨的“朋友圈”</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-22</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻25 -->
+    <a class="news-item" href="https://society.yunnan.cn/system/2025/07/21/033552736.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb25.jpg" alt="新闻25缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【视频】外语添翼 逐梦金平</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-21</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻26 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/07/21/033552276.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb26.jpg" alt="新闻26缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨“火”映青春：师生共燃文化薪火</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-21</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻27 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/07/21/033552336.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb27.jpg" alt="新闻27缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【组图】边关热土人情暖，一图一景看口岸</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-21</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻28 -->
+    <a class="news-item" href="https://society.yunnan.cn/system/2025/07/19/033551083.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb28.jpg" alt="新闻28缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【视频】家书里的闻一多</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-19</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻29 -->
+    <a class="news-item" href="https://society.yunnan.cn/system/2025/07/19/033550913.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb29.jpg" alt="新闻29缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【H5】聆听穿越时空的声音</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-19</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻30 -->
+    <a class="news-item" href="https://yn.yunnan.cn/system/2025/07/17/033549329.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb30.jpg" alt="新闻30缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨【视频】指尖芬芳：缩放亚洲花都</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-17</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻31 -->
+    <a class="news-item" href="https://edu.yunnan.cn/system/2025/07/17/033549008.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb31.jpg" alt="新闻31缩略图">
+        <div class="news-info">
+            <div class="news-title">重走联大路 续写强国梦丨西南联大主题海报：烽火五色谱</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-17</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+    <!-- 新闻32 -->
+    <a class="news-item" href="https://yn.yunnan.cn/system/2025/07/16/033547790.shtml" target="_blank">
+        <img class="news-thumb" src="news/thumb32.jpg" alt="新闻32缩略图">
+        <div class="news-info">
+            <div class="news-title">师生共话西南联大</div>
+            <div class="news-media">发表媒体：云南网</div>
+            <div class="news-time">发布时间：2025-07-16</div>
+            <div class="news-link">点击跳转原文链接</div>
+        </div>
+    </a>
+</div>
+
+<script>
+    // 图片加载失败时显示占位文字
+    const imgList = document.querySelectorAll('.news-thumb');
+    imgList.forEach(img => {
+        img.onerror = function() {
+            this.src = '';
+            this.innerHTML = '新闻缩略图';
+            this.style.background = '#eee';
+        }
+    });
+</script>
+</body>
+</html>
